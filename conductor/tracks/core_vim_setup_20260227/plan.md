@@ -1,7 +1,7 @@
 # Implementation Plan: Build core Vim configuration and installation script
 
 ## Phase 1: Repository Setup and Structure
-- [ ] Task: Create base directory structure for Vim configs (e.g., `nvim/`, `vim/`).
+- [x] Task: Create base directory structure for Vim configs (e.g., `nvim/`, `vim/`). bd69097
 - [ ] Task: Configure `.gitignore` to explicitly exclude all non-Vim files and credential paths.
 - [ ] Task: Write initial `README.md` explaining the purpose of this public dotfiles repository.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Repository Setup and Structure' (Protocol in workflow.md)
