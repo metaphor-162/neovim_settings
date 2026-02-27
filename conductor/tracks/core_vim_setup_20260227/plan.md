@@ -9,7 +9,7 @@
 ## Phase 2: Vim Configuration Extraction
 - [x] Task: Extract core Vim settings into `settings.vim` (or `init.lua`). 8e568fd
 - [x] Task: Extract keymaps into `keymaps.vim` (or `keymaps.lua`). d1008ba
-- [ ] Task: Extract plugin list, strictly removing AI/Auth-related plugins.
+- [x] Task: Extract plugin list, strictly removing AI/Auth-related plugins. a98f2d5
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Vim Configuration Extraction' (Protocol in workflow.md)
 
 ## Phase 3: Installation Script Development
