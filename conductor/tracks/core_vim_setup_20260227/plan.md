@@ -7,7 +7,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Repository Setup and Structure' (Protocol in workflow.md) d99a40c
 
 ## Phase 2: Vim Configuration Extraction
-- [ ] Task: Extract core Vim settings into `settings.vim` (or `init.lua`).
+- [x] Task: Extract core Vim settings into `settings.vim` (or `init.lua`). 8e568fd
 - [ ] Task: Extract keymaps into `keymaps.vim` (or `keymaps.lua`).
 - [ ] Task: Extract plugin list, strictly removing AI/Auth-related plugins.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Vim Configuration Extraction' (Protocol in workflow.md)
