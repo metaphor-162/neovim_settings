@@ -13,7 +13,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Vim Configuration Extraction' (Protocol in workflow.md) 5cfca26
 
 ## Phase 3: Installation Script Development
-- [ ] Task: Write `install.sh` to safely backup existing `.vimrc`/`.config/nvim`.
+- [x] Task: Write `install.sh` to safely backup existing `.vimrc`/`.config/nvim`. deac470
 - [ ] Task: Implement symlinking logic in `install.sh` to link repo files to target destinations.
 - [ ] Task: Implement automated plugin manager installation (e.g., vim-plug or lazy.nvim) in the script.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Installation Script Development' (Protocol in workflow.md)
