@@ -12,8 +12,8 @@
 - [x] Task: Extract plugin list, strictly removing AI/Auth-related plugins. a98f2d5
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Vim Configuration Extraction' (Protocol in workflow.md) 5cfca26
 
-## Phase 3: Installation Script Development
+## Phase 3: Installation Script Development [checkpoint: 0b25143]
 - [x] Task: Write `install.sh` to safely backup existing `.vimrc`/`.config/nvim`. deac470
 - [x] Task: Implement symlinking logic in `install.sh` to link repo files to target destinations. 1136551
 - [x] Task: Implement automated plugin manager installation (e.g., `vim-plug` or `lazy.nvim`) in the script. 135dbae
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Installation Script Development' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Installation Script Development' (Protocol in workflow.md) 0b25143
