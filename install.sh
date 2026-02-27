@@ -45,11 +45,44 @@ source ~/.vim/keymaps.vim
 " source ~/.vim/plugins.vim
 EOF
 
+# Install vim-plug for Vim
+if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
+    echo "Installing vim-plug..."
+    curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || echo "Curl failed, skipping vim-plug download."
+fi
+
+# Install lazy.nvim for Neovim
+LAZY_PATH="$HOME/.local/share/nvim/lazy/lazy.nvim"
+if [ ! -d "$LAZY_PATH" ]; then
+    echo "Installing lazy.nvim..."
+    git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable "$LAZY_PATH" || echo "Git clone failed, skipping lazy.nvim download."
+fi
+
 backup_if_exists "$HOME/.config/nvim/init.lua"
 cat <<EOF > "$HOME/.config/nvim/init.lua"
 require("core.options")
 require("core.keymaps")
--- Lazy.nvim setup should be handled after installation
+
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  spec = {
+    { import = "core.plugins" },
+  },
+})
 EOF
 
-echo "Installation (Phase 2: Symlinking) complete."
+echo "Installation (Phase 3: Plugin Managers) complete."
