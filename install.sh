@@ -77,17 +77,21 @@ fi
 if ask_yes_no "設定ファイルのシンボリックリンクを貼りますか?"; then
     echo "Creating symlinks..."
     
-    # Neovim
-    symlink_if_needed "$DOTFILES_DIR/nvim/init.lua" "$HOME/.config/nvim/init.lua"
-    symlink_if_needed "$DOTFILES_DIR/nvim/lua/core/options.lua" "$HOME/.config/nvim/lua/core/options.lua"
-    symlink_if_needed "$DOTFILES_DIR/nvim/lua/core/keymaps.lua" "$HOME/.config/nvim/lua/core/keymaps.lua"
-    symlink_if_needed "$DOTFILES_DIR/nvim/lua/core/plugins.lua" "$HOME/.config/nvim/lua/core/plugins.lua"
+    # Neovim: Link the whole directory to maintain original structure
+    # Backup existing ~/.config/nvim if it's not a symlink
+    if [ -d "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
+        backup_if_exists "$HOME/.config/nvim"
+    fi
+    mkdir -p "$HOME/.config"
+    ln -sfn "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
     
     # Vim
     symlink_if_needed "$DOTFILES_DIR/vimrc" "$HOME/.vimrc"
-    symlink_if_needed "$DOTFILES_DIR/vim/settings.vim" "$HOME/.vim/settings.vim"
-    symlink_if_needed "$DOTFILES_DIR/vim/keymaps.vim" "$HOME/.vim/keymaps.vim"
-    symlink_if_needed "$DOTFILES_DIR/vim/plugins.vim" "$HOME/.vim/plugins.vim"
+    # Link the whole vim directory for modular files (settings.vim, keymaps.vim, plugins.vim)
+    if [ -d "$HOME/.vim" ] && [ ! -L "$HOME/.vim" ]; then
+        backup_if_exists "$HOME/.vim"
+    fi
+    ln -sfn "$DOTFILES_DIR/vim" "$HOME/.vim"
 fi
 
 # Phase 5: Plugin Managers Bootstrapping
@@ -99,7 +103,7 @@ if ask_yes_no "プラグインマネージャー (vim-plug, lazy.nvim) をセッ
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || echo "Curl failed, skipping vim-plug download."
     fi
 
-    # Install lazy.nvim for Neovim
+    # Install lazy.nvim for Neovim (Handled by init.lua bootstrapping, but ensuring path exists)
     LAZY_PATH="$HOME/.local/share/nvim/lazy/lazy.nvim"
     if [ ! -d "$LAZY_PATH" ]; then
         echo "Installing lazy.nvim..."
