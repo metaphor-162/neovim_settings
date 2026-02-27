@@ -15,5 +15,5 @@
 ## Phase 3: Installation Script Development
 - [x] Task: Write `install.sh` to safely backup existing `.vimrc`/`.config/nvim`. deac470
 - [x] Task: Implement symlinking logic in `install.sh` to link repo files to target destinations. 1136551
-- [ ] Task: Implement automated plugin manager installation (e.g., vim-plug or lazy.nvim) in the script.
+- [x] Task: Implement automated plugin manager installation (e.g., `vim-plug` or `lazy.nvim`) in the script. 135dbae
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Installation Script Development' (Protocol in workflow.md)
