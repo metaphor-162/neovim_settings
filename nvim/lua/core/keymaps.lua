@@ -30,7 +30,7 @@ keymap.set("n", "<Space>bb", "<cmd>bprev<CR>", { desc = "Previous buffer" })
 keymap.set("n", "<Space>bn", "<cmd>bnext<CR>", { desc = "Next buffer" })
 
 -- Terminal
-keymap.set("t", "<C-x>", "<C-\><C-n>", { desc = "Exit terminal mode" })
+keymap.set("t", "<C-x>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Copy file path
 keymap.set("n", "<leader>cp", "<cmd>let @+ = expand('%:p')<CR>", { desc = "Copy file path" })
