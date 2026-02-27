@@ -1,0 +1,17 @@
+# Secrets and Keys
+*.key
+*.pem
+*.token
+.env
+.netrc
+
+# Vim/Neovim temporary files
+*.swp
+*.swo
+*~
+Session.vim
+.netrwhist
+
+# OS generated files
+.DS_Store
+Thumbs.db
